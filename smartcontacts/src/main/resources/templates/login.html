@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en" th:replace="~{base::parent(~{::#content},~{::title},~{::script})}">
+<head>
+    <title>Login Page</title>
+</head>
+<body>
+    <div id="content">
+        <div class="flex items-center justify-center pt-16 text-white">
+            <div class="w-full max-w-md p-4 mb-4 bg-gray-800 rounded-lg shadow-md">
+                <!-- message alert -->
+                <!-- <div data-th-replace="message::messagebox"></div> -->
+                 
+                <h2 class="mb-3 text-2xl font-bold text-center">Log In</h2>
+                <div class = "text-center text-red-600 " th:if="${param.error}"> Invalid username or password</div>
+                <div class = "text-center text-green-600" th:if="${param.logout}">You have been logged out</div>
+                <form  method="post" data-th-action="@{'/authenticate'}" class="space-y-2" novalidate>
+                    <div>
+                        <label for="email" class="block text-sm font-medium">Email</label>
+                        <input type="email" id="email" name="email" class="w-full p-2 bg-gray-900 border border-gray-900 rounded-lg">
+                        <!-- <div class="px-1 py-1 text-red-600" th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></div> -->
+                    </div>
+                    <div>
+                        <label for="password" class="block text-sm font-medium">Password</label>
+                        <input type="password" id="password" name="password" class="w-full p-2 bg-gray-900 border border-gray-900 rounded-lg">
+                        <!-- <div class="px-1 py-1 text-red-600" th:if="${#fields.hasErrors('password')}" th:errors="*{password}"></div> -->
+                    </div>
+                    <button type="submit" class="w-full p-2 bg-blue-600 rounded-lg hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500">Log In</button>
+                </form>
+                <button 
+                class="w-full p-2 mt-2 bg-red-500 rounded-lg hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-red-500"><a data-th-href="@{'/oauth2/authorization/google'}">Log In with Google</a></button>
+            </div>
+        </div>
+    </div>
+   
+    <script>console.log("login page")</script>
+</body>
+</html>
