@@ -73,6 +73,10 @@ public class pageController {
         
         // Validation
         if(rBindingResult.hasErrors()){
+            session.setAttribute("message", Message.builder()
+            .content("Please correct following errors")
+            .type(MessageType.red)
+            .build());
             return "register";
         }
 
