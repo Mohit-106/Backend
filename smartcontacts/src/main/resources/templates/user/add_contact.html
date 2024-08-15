@@ -19,7 +19,8 @@
                        
 
                         <form class="mt-8" data-th-action="@{'/user/contact/add'}" data-th-object="${contactForm}"
-                            method="post">
+                            method="post" enctype="multipart/form-data">
+                            
                             <!-- name form -->
                             <div class="mb-3">
                                 <label for="input-group-1"
@@ -118,7 +119,9 @@
                                                 <i class="w-4 h-4 fa-solid fa-earth-americas"></i>
                                             </div>
                                             <input data-th-field="*{websiteLink}"
-                                                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-10 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" />
+                                                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-10 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                                                placeholder="Website link" 
+                                                />
                                         </div>
                                     </div>
                                 </div>
@@ -132,23 +135,25 @@
                                             </div>
                                             <input type="text" data-th-field="*{linkedInLink}"
                                                 class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-10 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                                                placeholder="https://www.linkedin.com/in/mohit" />
+                                                placeholder="Linkedin profile link" />
                                         </div>
                                     </div>
                                 </div>
                             </div>
 
                             <!-- contact image field -->
-                            <div class="mb-3">
+                            <!-- <div class="mb-3">
                                 <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
                                     for="large_size">Contact Image</label>
                                 <input id="image_file_input"
                                     class="block w-full mb-2 text-xs text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400"
-                                    type="file" />
+                                    type="file"
+                                    data-th-field="*{contactImage}"
+                                     />
 
                                 <img class="m-3 mx-auto rounded-lg shadow max-h-52" src="" id="upload_image_preview"
                                     alt="" />
-                            </div>
+                            </div> -->
 
                             <!-- favorite checkbox -->
 

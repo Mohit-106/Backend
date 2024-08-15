@@ -15,6 +15,7 @@ import lombok.ToString;
 @AllArgsConstructor
 @NoArgsConstructor
 @ToString
+
 public class ContactForm {
 
     @NotBlank(message = "Name is required")
@@ -39,8 +40,6 @@ public class ContactForm {
 
     private String linkedInLink;
 
-    // @ValidFile(message = "Invalid File")
-    private MultipartFile contactImage;
 
 }
 

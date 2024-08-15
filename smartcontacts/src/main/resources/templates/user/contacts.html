@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en" th:replace="~{./base::parent(~{::#content},~{::title},~{::script})}">
+
+<head>
+    <title>Contacts Page</title>
+</head>
+
+<body>
+    <div id="content" class="sm:pl-64" style="height: 1000px">
+        <div class="flex justify-center align-middle">
+            <div class="relative p-6 overflow-x-auto shadow-md sm:rounded-lg">
+                <table class="w-full text-sm text-left text-gray-500 rtl:text-right dark:text-gray-400">
+                    <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+                        <tr>
+                            <th scope="col" class="px-6 py-3">Favourite</th>
+                            <th scope="col" class="px-6 py-3">Name</th>
+                            <th scope="col" class="px-6 py-3">Ph. Number</th>
+                            <th scope="col" class="px-6 py-3">Email</th>
+                            <th scope="col" class="px-6 py-3">Address</th>
+                            <th scope="col" class="px-6 py-3">Description</th>
+                            <th scope="col" class="px-6 py-3">LinkedIn</th>
+                            <th scope="col" class="px-6 py-3">Website</th>
+                            <th scope="col" class="px-6 py-3">Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr data-th-object="${c}" data-th-each="c : ${contacts}"
+                            class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
+                            <th scope="row"
+                                class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                <div data-th-if="*{favorite}" class="flex items-center">
+                                    <i class="fa-solid fa-heart-circle-check"></i>
+                                </div>
+                                <div data-th-unless="*{favorite}" class="flex items-center">
+
+                                    <i class="fa-regular fa-heart"></i>
+                                </div>
+                            </th>
+                            <th data-th-text="*{name}" scope="row"
+                                class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                No Available
+                            </th>
+                            <td data-th-text="*{phoneNumber}" class="px-6 py-4">
+                                No Available
+                            </td>
+                            <td data-th-text="*{email}" class="px-6 py-4">No Available</td>
+                            <td data-th-text="*{address}" class="px-6 py-4">
+                                No Available
+                            </td>
+                            <td data-th-text="*{description}" class="px-6 py-4">
+                                No Available
+                            </td>
+                            <td class="px-6 py-4">
+                                <a data-th-href="*{linkedinLink}"><i class="w-6 h-6 fa-brands fa-linkedin"></i></a>
+                            </td>
+                            <td class="px-6 py-4">
+                                <a data-th-href="*{linkedinLink}">
+                                    <i class="w-6 h-6 fa-solid fa-earth-americas"></i>
+                                </a>
+                            </td>
+                            <td class="flex items-center justify-center gap-1 px-6 py-4">
+                                <button>
+                                    <i class="w-6 h-6 fa-solid fa-trash"></i>
+                                </button>
+                                <!-- update contact -->
+                                <button>
+                                    <a> <i class="w-6 h-6 fa-solid fa-pen"></i></a>
+                                </button>
+
+                                <!-- viewcontact -->
+                                <button>
+                                    <i class="w-6 h-6 fa-solid fa-eye"></i>
+                                </button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <script>
+        console.log("Contacts page");
+    </script>
+</body>
+
+</html>
